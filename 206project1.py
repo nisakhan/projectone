@@ -14,6 +14,11 @@ def getData(file):
 #change (contents and size) in the different test
 #cases.
 
+#I used a list writer and that is why I have an extra line. You said to add this note during office hours,
+#saying that it is fine! Thank you!!
+
+#Git hub account: https://github.com/nisakhan/projectone
+
 	import csv
 	with open(file) as csvDataFile:
 		csvReader = csv.reader(csvDataFile)
@@ -103,10 +108,11 @@ def mySortPrint(a,col,fileName):
 #Input: list of dictionaries, key to sort by and output file name
 #Output: None
 	with open(fileName, 'w') as f:
-		writer = csv.DictWriter(f, delimiter = ',', fieldnames = ['First', 'Last', 'Email', 'Class', 'DOB'])
+		writer = csv.DictWriter(f, delimiter = ',', fieldnames = ['First', 'Last', 'Email'])
 		y = sorted(a, key=operator.itemgetter(col))
 		for line in y:
-			writer.writerow({"First":(line["First"]), 'Last':(line["Last"]), "Email":(line["Email"])})
+			writer.writerow({"First":line["First"], 'Last':line["Last"], "Email":line["Email"]})
+
 
 ################################################################
 ## DO NOT MODIFY ANY CODE BELOW THIS
@@ -130,7 +136,7 @@ def main():
 	print("Read in Test data and store as a list of dictionaries")
 	data = getData('P1DataA.csv')
 	data2 = getData('P1DataB.csv')
-	total += test(type(data),type([]),35)
+	total += test(type(data),type([]),40)
 	print()
 	print("First student sorted by First name:")
 	total += test(mySort(data,'First'),'Abbot Le',15)
